@@ -58,7 +58,9 @@
         <video
           id="heroVideo"
           class="hero__video"
+          autoplay
           muted
+          loop
           playsinline
           preload="auto"
           poster="/images/mango-phone-back.png"
@@ -83,6 +85,13 @@
           A phone shaped by touch.
         </p>
       </div>
+
+      <!-- Scroll hint — animated chevron -->
+      <div class="hero__scroll-hint" id="heroScrollHint" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
     </div>
   </section>
 
@@ -91,6 +100,8 @@
   <!-- Hard cut from reveal amber to gold     -->
   <!-- ═══════════════════════════════════════ -->
   <section id="manifesto" class="manifesto" aria-label="Manifesto">
+    <!-- Decorative golden gradient texture -->
+    <div class="manifesto__texture" aria-hidden="true"></div>
     <div class="manifesto__content">
       <div class="manifesto__text">
         <p class="manifesto__opening manifesto-reveal">
@@ -102,7 +113,6 @@
         <p class="manifesto__close manifesto-reveal">
           Mango begins there.
         </p>
-        <a href="#cta" class="manifesto__cta btn btn--mid-page manifesto-reveal">Experience Mango</a>
       </div>
       <div class="manifesto__space" aria-hidden="true"></div>
     </div>
@@ -114,6 +124,11 @@
   <!-- Background: #F0DFB0 → #E8D098          -->
   <!-- ═══════════════════════════════════════ -->
   <section id="design-story" class="story" aria-label="Design story">
+    <!-- Eyebrow label -->
+    <div class="story__intro reveal-on-entry">
+      <p class="story__label">The Design</p>
+    </div>
+
     <!-- Beat 1 — Form (image left, copy right) -->
     <div class="story__beat story__beat--img-left">
       <div class="story__image reveal-on-entry-image">
@@ -172,30 +187,47 @@
       </div>
     </div>
 
-    <!-- Moment 2 — Engineering Slideshow -->
-    <div class="engineering-slideshow" id="engineeringSlideshow">
-      <p class="engineering-slideshow__label reveal-on-entry">Engineering</p>
-      <h2 class="engineering-slideshow__heading reveal-on-entry">Thoughtfully assembled.</h2>
-
-      <div class="engineering-slideshow__track">
-        <div class="engineering-slideshow__slide active" data-slide="0">
-          <img src="/images/mango-engineering-chassis.png" alt="Precision aluminum chassis — CNC-machined mango-shaped frame" loading="lazy" />
-          <p class="engineering-slideshow__caption">Precision Chassis</p>
-        </div>
-        <div class="engineering-slideshow__slide" data-slide="1">
-          <img src="/images/mango-engineering-camera.png" alt="Dual camera module — gold-bezeled lenses with flex cable assembly" loading="lazy" />
-          <p class="engineering-slideshow__caption">Dual Camera Module</p>
-        </div>
-        <div class="engineering-slideshow__slide" data-slide="2">
-          <img src="/images/mango-engineering-internals.png" alt="Custom internals — mango-shaped battery and logic board" loading="lazy" />
-          <p class="engineering-slideshow__caption">Custom Internals</p>
-        </div>
+    <!-- Engineering — dark technical grid -->
+    <div class="engineering" id="engineering">
+      <div class="engineering__header reveal-on-entry">
+        <p class="engineering__label">Engineering</p>
+        <h2 class="engineering__heading">Thoughtfully assembled.</h2>
+        <p class="engineering__subhead">Every component shaped to the same organic standard.</p>
       </div>
 
-      <div class="engineering-slideshow__dots">
-        <button class="engineering-slideshow__dot active" data-dot="0" aria-label="Slide 1"></button>
-        <button class="engineering-slideshow__dot" data-dot="1" aria-label="Slide 2"></button>
-        <button class="engineering-slideshow__dot" data-dot="2" aria-label="Slide 3"></button>
+      <div class="engineering__grid">
+        <!-- Component 1 — Chassis -->
+        <div class="engineering__card reveal-on-entry">
+          <div class="engineering__img-wrap">
+            <img src="/images/mango-engineering-chassis.png" alt="Precision aluminum chassis — CNC-machined mango-shaped frame" loading="lazy" width="1400" height="800" />
+          </div>
+          <div class="engineering__card-info">
+            <h3 class="engineering__card-title">Precision Chassis</h3>
+            <p class="engineering__card-spec">CNC-machined aluminum. Mango-contoured unibody frame, 6.2mm at its thinnest.</p>
+          </div>
+        </div>
+
+        <!-- Component 2 — Camera Module -->
+        <div class="engineering__card reveal-on-entry">
+          <div class="engineering__img-wrap">
+            <img src="/images/mango-engineering-camera.png" alt="Dual camera module — gold-bezeled lenses with flex cable assembly" loading="lazy" width="1400" height="800" />
+          </div>
+          <div class="engineering__card-info">
+            <h3 class="engineering__card-title">Dual Camera Module</h3>
+            <p class="engineering__card-spec">Gold-bezeled optics. Asymmetric dual-lens array, flush-mounted with zero camera island.</p>
+          </div>
+        </div>
+
+        <!-- Component 3 — Internals -->
+        <div class="engineering__card reveal-on-entry">
+          <div class="engineering__img-wrap">
+            <img src="/images/mango-engineering-internals.png" alt="Custom internals — mango-shaped battery and logic board" loading="lazy" width="1400" height="800" />
+          </div>
+          <div class="engineering__card-info">
+            <h3 class="engineering__card-title">Custom Internals</h3>
+            <p class="engineering__card-spec">Mango-shaped battery and logic board. Every millimeter follows the form.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -224,6 +256,7 @@
             width="900"
             height="900"
           />
+          <span class="ecosystem__hover-label">Learn more</span>
         </div>
         <div class="ecosystem__meta">
           <h3 class="ecosystem__name">Mango Buds</h3>
@@ -241,6 +274,7 @@
             width="900"
             height="900"
           />
+          <span class="ecosystem__hover-label">Learn more</span>
         </div>
         <div class="ecosystem__meta">
           <h3 class="ecosystem__name">Mango Charger</h3>
@@ -258,6 +292,7 @@
             width="900"
             height="900"
           />
+          <span class="ecosystem__hover-label">Learn more</span>
         </div>
         <div class="ecosystem__meta">
           <h3 class="ecosystem__name">Mango Case</h3>
@@ -313,6 +348,13 @@
         <a href="#ecosystem" class="footer__link">Ecosystem</a>
         <a href="#cta" class="footer__link">Experience</a>
       </nav>
+      <div class="footer__social">
+        <a href="#" class="footer__link" aria-label="Instagram">Instagram</a>
+        <a href="#" class="footer__link" aria-label="Twitter">Twitter</a>
+        <a href="#" class="footer__link" aria-label="YouTube">YouTube</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
       <p class="footer__legal">&copy; 2026 Mango. All rights reserved.</p>
     </div>
   </footer>
