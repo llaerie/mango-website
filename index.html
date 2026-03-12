@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MANGO — Designed to be held.</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="description" content="Mango. A phone shaped by touch. Designed to be held, not just looked at. Warm precision in every curve." />
+
+  <!-- Preload hero poster for fast FCP -->
+  <link rel="preload" as="image" href="/images/mango-phone-back.png" />
+
+  <!-- Outfit from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PRELOADER — Cinematic brand curtain    -->
+  <!-- ═══════════════════════════════════════ -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader__content">
+      <div class="preloader__wordmark">
+        <span class="preloader__letter" style="animation-delay: 0s">M</span>
+        <span class="preloader__letter" style="animation-delay: 0.12s">A</span>
+        <span class="preloader__letter" style="animation-delay: 0.24s">N</span>
+        <span class="preloader__letter" style="animation-delay: 0.36s">G</span>
+        <span class="preloader__letter" style="animation-delay: 0.48s">O</span>
+      </div>
+      <div class="preloader__divider"></div>
+      <p class="preloader__tagline">Shaped different</p>
+    </div>
+  </div>
+
+  <!-- Skip to content (accessibility) -->
+  <a href="#manifesto" class="skip-link">Skip to content</a>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- STICKY NAV                             -->
+  <!-- ═══════════════════════════════════════ -->
+  <nav id="nav" class="nav">
+    <a href="#" class="nav__wordmark" aria-label="Mango — return to top">MANGO</a>
+    <a href="#cta" class="nav__cta btn btn--nav">Experience Mango</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SECTION 1+2 — HERO + REVEAL (250vh)    -->
+  <!-- Sticky viewport lock with scroll-scrub -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="hero" class="hero" aria-label="Hero — Designed to be held">
+    <div class="hero__sticky">
+      <!-- Video scrub container (desktop) / poster (mobile) -->
+      <div class="hero__video-wrap">
+        <video
+          id="heroVideo"
+          class="hero__video"
+          muted
+          playsinline
+          preload="auto"
+          poster="/images/mango-phone-back.png"
+          aria-hidden="true"
+        >
+          <source src="/video/mango_hero.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- Dark overlay for text protection -->
+      <div class="hero__overlay" id="heroOverlay"></div>
+
+      <!-- Background color layer for scroll-driven warmth -->
+      <div class="hero__bg-warmth" id="heroBgWarmth"></div>
+
+      <!-- Headline overlay -->
+      <div class="hero__content" id="heroContent">
+        <h1 class="hero__headline fade-in" id="heroHeadline">
+          DESIGNED<br />TO BE<br />HELD.
+        </h1>
+        <p class="hero__subline fade-in fade-in--delay" id="heroSubline">
+          A phone shaped by touch.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SECTION 3 — MANIFESTO                  -->
+  <!-- Hard cut from reveal amber to gold     -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="manifesto" class="manifesto" aria-label="Manifesto">
+    <div class="manifesto__content">
+      <div class="manifesto__text">
+        <p class="manifesto__opening manifesto-reveal">
+          Phones forgot they were objects.<br />Mango remembered.
+        </p>
+        <p class="manifesto__body manifesto-reveal">
+          Before screens, features, or speed, there is form — the curve in your palm, the weight in your hand, the way light settles across a surface.
+        </p>
+        <p class="manifesto__close manifesto-reveal">
+          Mango begins there.
+        </p>
+        <a href="#cta" class="manifesto__cta btn btn--mid-page manifesto-reveal">Experience Mango</a>
+      </div>
+      <div class="manifesto__space" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SECTION 4 — DESIGN STORY (150vh)       -->
+  <!-- Two editorial beats: Form + Surface    -->
+  <!-- Background: #F0DFB0 → #E8D098          -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="design-story" class="story" aria-label="Design story">
+    <!-- Beat 1 — Form (image left, copy right) -->
+    <div class="story__beat story__beat--img-left">
+      <div class="story__image reveal-on-entry-image">
+        <img
+          src="/images/mango-phone-warm.png"
+          alt="Mango phone — the organic pebble silhouette showing the full curve of the body"
+          loading="lazy"
+          width="900"
+          height="1200"
+        />
+      </div>
+      <div class="story__copy reveal-on-entry">
+        <h2 class="story__heading">Shaped like something found, not manufactured.</h2>
+        <p>The edge follows the line between your thumb and palm. There is no straight line anywhere.</p>
+      </div>
+    </div>
+
+    <!-- Beat 2 — Surface (copy left, image right) -->
+    <div class="story__beat story__beat--img-right">
+      <div class="story__copy reveal-on-entry">
+        <h2 class="story__heading">A surface that holds light like still water.</h2>
+        <p>The finish shifts with every angle — golden in direct light, deep amber from the side.</p>
+      </div>
+      <div class="story__image reveal-on-entry-image">
+        <img
+          src="/images/mango-case-warm.png"
+          alt="Mango phone — the glossy surface catching warm directional light"
+          loading="lazy"
+          width="900"
+          height="900"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SECTION 5 — MATERIAL & CRAFT (100vh)   -->
+  <!-- Two macro moments: Camera + Surface    -->
+  <!-- Background: #DFC888 → #D4BF78          -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="material" class="material" aria-label="Material and craft">
+    <!-- Moment 1 — Camera Module -->
+    <div class="material__moment">
+      <div class="material__copy reveal-on-entry">
+        <h2 class="material__heading">The lens ring catches light like a small, precise jewel.</h2>
+        <p>Two lenses. Arranged asymmetrically. The module sits flush — no camera island, no raised platform.</p>
+      </div>
+      <div class="material__image material__image--wide reveal-on-entry-image">
+        <img
+          src="/images/mango-macro-camera.png"
+          alt="Mango phone close-up — camera module detail showing dual-lens arrangement and gold ring finish"
+          loading="lazy"
+          width="1400"
+          height="800"
+        />
+      </div>
+    </div>
+
+    <!-- Moment 2 — Engineering Slideshow -->
+    <div class="engineering-slideshow" id="engineeringSlideshow">
+      <p class="engineering-slideshow__label reveal-on-entry">Engineering</p>
+      <h2 class="engineering-slideshow__heading reveal-on-entry">Thoughtfully assembled.</h2>
+
+      <div class="engineering-slideshow__track">
+        <div class="engineering-slideshow__slide active" data-slide="0">
+          <img src="/images/mango-engineering-chassis.png" alt="Precision aluminum chassis — CNC-machined mango-shaped frame" loading="lazy" />
+          <p class="engineering-slideshow__caption">Precision Chassis</p>
+        </div>
+        <div class="engineering-slideshow__slide" data-slide="1">
+          <img src="/images/mango-engineering-camera.png" alt="Dual camera module — gold-bezeled lenses with flex cable assembly" loading="lazy" />
+          <p class="engineering-slideshow__caption">Dual Camera Module</p>
+        </div>
+        <div class="engineering-slideshow__slide" data-slide="2">
+          <img src="/images/mango-engineering-internals.png" alt="Custom internals — mango-shaped battery and logic board" loading="lazy" />
+          <p class="engineering-slideshow__caption">Custom Internals</p>
+        </div>
+      </div>
+
+      <div class="engineering-slideshow__dots">
+        <button class="engineering-slideshow__dot active" data-dot="0" aria-label="Slide 1"></button>
+        <button class="engineering-slideshow__dot" data-dot="1" aria-label="Slide 2"></button>
+        <button class="engineering-slideshow__dot" data-dot="2" aria-label="Slide 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SECTION 6 — ECOSYSTEM (130vh)          -->
+  <!-- Four staggered beats + group shot      -->
+  <!-- Background: #8A7230 → #6B5820          -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="ecosystem" class="ecosystem" aria-label="Ecosystem">
+    <!-- Ecosystem intro — chapter framing -->
+    <div class="ecosystem__intro reveal-on-entry">
+      <p class="ecosystem__intro-label">The Ecosystem</p>
+      <h2 class="ecosystem__intro-heading">One language. Every surface.</h2>
+    </div>
+
+    <!-- Product gallery — editorial 3-column grid -->
+    <div class="ecosystem__gallery">
+      <!-- Earbuds -->
+      <div class="ecosystem__item reveal-on-entry">
+        <div class="ecosystem__img-wrap">
+          <img
+            src="/images/mango-earbuds.png"
+            alt="Mango wireless earbuds in their organic case — same warm mango color"
+            loading="lazy"
+            width="900"
+            height="900"
+          />
+        </div>
+        <div class="ecosystem__meta">
+          <h3 class="ecosystem__name">Mango Buds</h3>
+          <p class="ecosystem__tagline">Sound, shaped to rest.</p>
+        </div>
+      </div>
+
+      <!-- Charging Pad -->
+      <div class="ecosystem__item reveal-on-entry">
+        <div class="ecosystem__img-wrap">
+          <img
+            src="/images/mango-charging-pad.png"
+            alt="Mango wireless charging pad — pebble-shaped, warm amber surface"
+            loading="lazy"
+            width="900"
+            height="900"
+          />
+        </div>
+        <div class="ecosystem__meta">
+          <h3 class="ecosystem__name">Mango Charger</h3>
+          <p class="ecosystem__tagline">Place it down. Walk away.</p>
+        </div>
+      </div>
+
+      <!-- Case -->
+      <div class="ecosystem__item reveal-on-entry">
+        <div class="ecosystem__img-wrap">
+          <img
+            src="/images/mango-phone-case.png"
+            alt="Mango phone protective case — transparent with amber tint following organic contour"
+            loading="lazy"
+            width="900"
+            height="900"
+          />
+        </div>
+        <div class="ecosystem__meta">
+          <h3 class="ecosystem__name">Mango Case</h3>
+          <p class="ecosystem__tagline">Protection that completes the form.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group Shot — full-width cinematic closer -->
+    <div class="ecosystem__group reveal-on-entry-image">
+      <img
+        src="/images/mango-ecosystem-group.png"
+        alt="The complete Mango ecosystem — phone, earbuds, charging pad, and case arranged together"
+        loading="lazy"
+        width="1400"
+        height="800"
+      />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SECTION 7 — CTA / CLOSE               -->
+  <!-- Split layout: statement left, CTA right -->
+  <!-- ═══════════════════════════════════════ -->
+  <section id="cta" class="cta-close" aria-label="Call to action">
+    <!-- Swirl texture background -->
+    <div class="cta-close__bg" aria-hidden="true">
+      <img src="/images/mango-swirl-texture.png" alt="" loading="lazy" />
+    </div>
+    <div class="cta-close__overlay" aria-hidden="true"></div>
+
+    <div class="cta-close__inner">
+      <p class="cta-close__statement reveal-on-entry">
+        In a world of rectangles,<br>we made something you actually want to hold.
+      </p>
+      <p class="cta-close__pickup reveal-on-entry">Pick it up.</p>
+      <a href="#" class="btn btn--cta reveal-on-entry" id="ctaButton">Experience Mango</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- FOOTER                                 -->
+  <!-- ═══════════════════════════════════════ -->
+  <footer id="footer" class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <p class="footer__wordmark">MANGO</p>
+        <p class="footer__tagline">Designed to be held.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="#hero" class="footer__link">Story</a>
+        <a href="#design-story" class="footer__link">Design</a>
+        <a href="#ecosystem" class="footer__link">Ecosystem</a>
+        <a href="#cta" class="footer__link">Experience</a>
+      </nav>
+      <p class="footer__legal">&copy; 2026 Mango. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

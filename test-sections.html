@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mango — Section Tests</title>
+
+  <!-- Cabinet Grotesk from Fontshare CDN -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════ */
+    /* RESET & BASE                           */
+    /* ═══════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0D0A06;
+      color: #F5F0E8;
+    }
+
+    /* ═══════════════════════════════════════ */
+    /* TEST NAVIGATION                        */
+    /* ═══════════════════════════════════════ */
+    .test-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      gap: 16px;
+      padding: 16px 32px;
+      background: rgba(13, 10, 6, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245, 240, 232, 0.08);
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .test-nav a {
+      color: #A09888;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .test-nav a:hover { color: #F5F0E8; }
+
+    .test-nav .separator { color: rgba(245, 240, 232, 0.2); }
+
+    /* ═══════════════════════════════════════ */
+    /* TEST SECTION LABELS                    */
+    /* ═══════════════════════════════════════ */
+    .test-label {
+      padding: 80px 48px 32px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #A09888;
+      border-top: 1px solid rgba(245, 240, 232, 0.08);
+    }
+
+    .test-label:first-of-type { border-top: none; }
+
+    .test-description {
+      padding: 0 48px 48px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #8A8070;
+      max-width: 720px;
+    }
+
+    /* ═══════════════════════════════════════ */
+    /* TEST 1: MANIFESTO GOLD SATURATION      */
+    /* ═══════════════════════════════════════ */
+
+    .gold-test {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 260px 48px;
+      text-align: center;
+      position: relative;
+    }
+
+    .gold-test__tag {
+      position: absolute;
+      top: 32px;
+      right: 40px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      background: rgba(28, 25, 23, 0.15);
+    }
+
+    .gold-A { background-color: #B89028; }
+    .gold-B { background-color: #C0962E; }
+    .gold-C { background-color: #D4A030; }
+
+    .gold-test__opening {
+      font-size: 64px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      color: #1C1917;
+      max-width: 900px;
+      margin-bottom: 48px;
+    }
+
+    .gold-test__body {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #2A2520;
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    .gold-test__close {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #2A2520;
+    }
+
+    /* ═══════════════════════════════════════ */
+    /* TEST 2: HERO EXTREME TEXT SCALE         */
+    /* ═══════════════════════════════════════ */
+
+    .hero-test {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: #0D0A06;
+    }
+
+    .hero-test__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Darken the video so cream text reads clearly */
+    .hero-test::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(13, 10, 6, 0.85) 0%,
+        rgba(13, 10, 6, 0.45) 40%,
+        rgba(13, 10, 6, 0.2) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-test__content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0 6vw 5vh;
+      z-index: 2;
+    }
+
+    .hero-test__tag {
+      z-index: 2;
+    }
+
+    .hero-test__headline {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.88;
+      color: #F5F0E8;
+      text-transform: uppercase;
+    }
+
+    .hero-test--200 .hero-test__headline { font-size: 200px; }
+    .hero-test--180 .hero-test__headline { font-size: 180px; }
+    .hero-test--160 .hero-test__headline { font-size: 160px; }
+    .hero-test--140 .hero-test__headline { font-size: 140px; }
+
+    .hero-test__subline {
+      font-size: 20px;
+      font-weight: 400;
+      color: #A09888;
+      margin-top: 32px;
+    }
+
+    .hero-test__tag {
+      position: absolute;
+      top: 80px;
+      right: 40px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #F5F0E8;
+      padding: 6px 14px;
+      border-radius: 4px;
+      background: rgba(245, 240, 232, 0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    /* ═══════════════════════════════════════ */
+    /* TEST 3: HERO + MANIFESTO TRANSITION    */
+    /* ═══════════════════════════════════════ */
+
+    .transition-test {
+      background: linear-gradient(
+        to bottom,
+        #1C1710 0%,
+        #3A2E14 25%,
+        #7A6020 50%,
+        #B89028 75%,
+        #B89028 100%
+      );
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 48px;
+    }
+
+    .transition-test__inner {
+      text-align: center;
+      max-width: 720px;
+    }
+
+    .transition-test__note {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(28, 25, 23, 0.5);
+      margin-bottom: 48px;
+    }
+
+    .transition-test__text {
+      font-size: 64px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      color: #1C1917;
+    }
+
+    /* ═══════════════════════════════════════ */
+    /* SPACER                                 */
+    /* ═══════════════════════════════════════ */
+
+    .spacer {
+      height: 48px;
+      background: #0D0A06;
+    }
+
+    .spacer--thick { height: 120px; }
+
+    /* ═══════════════════════════════════════ */
+    /* RESPONSIVE                             */
+    /* ═══════════════════════════════════════ */
+
+    @media (max-width: 768px) {
+      .hero-test--200 .hero-test__headline { font-size: 72px; }
+      .hero-test--180 .hero-test__headline { font-size: 68px; }
+      .hero-test--160 .hero-test__headline { font-size: 64px; }
+      .hero-test--140 .hero-test__headline { font-size: 56px; }
+
+      .gold-test__opening { font-size: 32px; }
+      .gold-test__body { font-size: 18px; }
+      .gold-test__close { font-size: 18px; }
+      .gold-test { padding: 160px 24px; }
+
+      .test-label { padding: 60px 24px 16px; }
+      .test-description { padding: 0 24px 32px; }
+
+      .transition-test__text { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TEST NAVIGATION -->
+  <nav class="test-nav">
+    <a href="#test-gold">Gold Saturation</a>
+    <span class="separator">·</span>
+    <a href="#test-hero">Hero Text Scale</a>
+    <span class="separator">·</span>
+    <a href="#test-transition">Transition</a>
+    <span class="separator">·</span>
+    <a href="/">← Back to Site</a>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- TEST 1: MANIFESTO GOLD SATURATION              -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <div class="spacer--thick" id="test-gold"></div>
+
+  <div class="test-label">Test 1 — Manifesto Gold Saturation</div>
+  <p class="test-description">
+    Three candidate golds, each shown at full viewport height with the actual manifesto copy in Cabinet Grotesk Semibold 64px.
+    The correct one feels like burnished metal, not spray paint. Scroll through each. Which feels richest without feeling synthetic?
+  </p>
+
+  <!-- Candidate A — #B89028 (recommended start) -->
+  <div class="gold-test gold-A">
+    <div class="gold-test__tag" style="color: #1C1917;">
+      Candidate A · #B89028 · Deep Burnished Gold (start here)
+    </div>
+    <p class="gold-test__opening">
+      Phones forgot they were objects.<br>Mango remembered.
+    </p>
+    <p class="gold-test__body">
+      Before screens, features, or speed, there is form — the curve in your palm, the weight in your hand, the way light settles across a surface.
+    </p>
+    <p class="gold-test__close">
+      Mango begins there.
+    </p>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- Candidate B — #C0962E -->
+  <div class="gold-test gold-B">
+    <div class="gold-test__tag" style="color: #1C1917;">
+      Candidate B · #C0962E · Rich Warm Gold
+    </div>
+    <p class="gold-test__opening">
+      Phones forgot they were objects.<br>Mango remembered.
+    </p>
+    <p class="gold-test__body">
+      Before screens, features, or speed, there is form — the curve in your palm, the weight in your hand, the way light settles across a surface.
+    </p>
+    <p class="gold-test__close">
+      Mango begins there.
+    </p>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- Candidate C — #D4A030 -->
+  <div class="gold-test gold-C">
+    <div class="gold-test__tag" style="color: #1C1917;">
+      Candidate C · #D4A030 · Original Spec (may be too saturated)
+    </div>
+    <p class="gold-test__opening">
+      Phones forgot they were objects.<br>Mango remembered.
+    </p>
+    <p class="gold-test__body">
+      Before screens, features, or speed, there is form — the curve in your palm, the weight in your hand, the way light settles across a surface.
+    </p>
+    <p class="gold-test__close">
+      Mango begins there.
+    </p>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- TEST 2: HERO EXTREME TEXT SCALE                -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <div class="spacer--thick" id="test-hero"></div>
+
+  <div class="test-label">Test 2 — Hero Extreme Text Scale</div>
+  <p class="test-description">
+    Cabinet Grotesk Bold on the full-bleed 4K video at four sizes: 200px, 180px, 160px, and 140px (fallback).
+    Does the text feel like architecture or just large? Which size creates the strongest composition?
+  </p>
+
+  <!-- 200px -->
+  <div class="hero-test hero-test--200">
+    <video class="hero-test__video" muted playsinline autoplay loop preload="auto" poster="/images/mango-phone-back.png">
+      <source src="/video/mango_hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-test__tag">200px — Maximum</div>
+    <div class="hero-test__content">
+      <h1 class="hero-test__headline">
+        DESIGNED<br>TO BE<br>HELD.
+      </h1>
+      <p class="hero-test__subline">A phone shaped by touch.</p>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- 180px -->
+  <div class="hero-test hero-test--180">
+    <video class="hero-test__video" muted playsinline autoplay loop preload="auto" poster="/images/mango-phone-back.png">
+      <source src="/video/mango_hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-test__tag">180px — Recommended</div>
+    <div class="hero-test__content">
+      <h1 class="hero-test__headline">
+        DESIGNED<br>TO BE<br>HELD.
+      </h1>
+      <p class="hero-test__subline">A phone shaped by touch.</p>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- 160px -->
+  <div class="hero-test hero-test--160">
+    <video class="hero-test__video" muted playsinline autoplay loop preload="auto" poster="/images/mango-phone-back.png">
+      <source src="/video/mango_hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-test__tag">160px — Minimum Extreme</div>
+    <div class="hero-test__content">
+      <h1 class="hero-test__headline">
+        DESIGNED<br>TO BE<br>HELD.
+      </h1>
+      <p class="hero-test__subline">A phone shaped by touch.</p>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- 140px fallback -->
+  <div class="hero-test hero-test--140">
+    <video class="hero-test__video" muted playsinline autoplay loop preload="auto" poster="/images/mango-phone-back.png">
+      <source src="/video/mango_hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-test__tag">140px — Fallback (if font doesn't hold)</div>
+    <div class="hero-test__content">
+      <h1 class="hero-test__headline">
+        DESIGNED<br>TO BE<br>HELD.
+      </h1>
+      <p class="hero-test__subline">A phone shaped by touch.</p>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- TEST 3: COLOR TRANSITION PREVIEW               -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <div class="spacer--thick" id="test-transition"></div>
+
+  <div class="test-label">Test 3 — Dark-to-Gold Transition Preview</div>
+  <p class="test-description">
+    The gradient shows the transition from the dark reveal section through intermediate warm tones into the manifesto gold.
+    Does it feel like sunrise or like a div background change?
+  </p>
+
+  <div class="transition-test">
+    <div class="transition-test__inner">
+      <p class="transition-test__note">Scrolling through this zone should feel like entering a warm room</p>
+      <p class="transition-test__text">
+        Phones forgot they were objects.<br>Mango remembered.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="spacer--thick"></div>
+
+</body>
+</html>
+</style>
+</head>
+</html>
